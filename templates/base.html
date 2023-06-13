@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}- FlaskApp</title>
+    <style>
+        .teacher {
+            padding: 10px;
+            margin: 5px;
+            background-color: #f3f3f3
+        }
+
+        nav a {
+            color: #d64161;
+            font-size: 1em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+    </style>
+    <link rel="icon" href="{{ url_for('static', filename = 'favicon.ico') }}" type="image/x-icon"/>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('all_teachers') }}">Teachers</a>
+        <a href="{{ url_for('all_courses') }}">Courses</a>
+        <a href="#">About</a>
+        Academic Year: {{ ay }}
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Change Current Academic Year {% endblock %}</h1>
+    <form name="change_ay" action="{{ url_for('change_ay') }}" method="POST">
+        Current Academic Year: 
+        <select name="current_ay">
+            {% for ay in academic_years %}
+            <option value="{{ ay['AcademicYear'] }}" {{'selected' if ay['AcademicYear']==current_ay}}>{{ ay['AcademicYear'] }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" onclick="return confirm('Are you sure you want to change the A.Y.?')">Change A.Y.</button>
+        <button type="button" onclick="history.back()">Back</button>
+    </form>
+{% endblock %}

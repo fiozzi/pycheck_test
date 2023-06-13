@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Add new teacher" {% endblock %}</h1>
+    <form method="post">
+        <label for="firstname">First Name</label>
+        <br>
+        <input type="text" name="firstname"
+               placeholder="First Name"
+               value="{{ request.form['firstname'] }}"></input>
+        <br>
+
+        <label for="lastname">Last Name</label>
+        <br>
+        <input type="text" name="lastname"
+               placeholder="Last Name"
+               value="{{ request.form['lastname'] }}"></input>
+        <br>
+
+        <label for="notes">Notes</label>
+        <br>
+        <textarea name="notes"
+                  placeholder="Notes"
+                  rows="5"
+                  cols="60"
+                  >{{ request.form['notes'] }}</textarea>
+        <br>
+
+        <label for="department">Department</label>
+        <br>
+        <select name="iddepartment">
+            <option value="1">DCS</option>
+            <option value="2">DEC</option>
+        </select>
+        <br>
+
+        <label for="position">Position</label>
+        <br>
+        <select name="idposition">
+            <option value="1">FULL PROFESSOR</option>
+            <option value="2">ASSOCIATE PROFESSOR</option>
+            <option value="3">ASSISTANT PROFESSOR</option>
+            <option value="4">RESEARCH ASSISTANT</option>
+            <option value="5">PHD STUDENT</option>
+            <option value="6">ADJUNCT PROFESSOR</option>
+            <option value="7">LECTURER</option>
+            <option value="8">TBD</option>
+        </select>
+        <br>
+
+        <button type="submit" onclick="return confirm('Are you sure you want to insert the record?')">Submit</button>
+        <button type="button" onclick="history.back()">Back</button>
+    </form>
+{% endblock %}

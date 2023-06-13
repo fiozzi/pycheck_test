@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Report all teachers {% endblock %}</h1>
+    <form name="report_all_teachers" method="GET">
+        {% for th in ath %}
+            <table>
+                <tr>
+                    <td>Teacher</td>
+                    <td>Course</td>
+                    <td>Hours</td>
+                </tr>
+            {% for teacher_hour in th %}
+                <tr>
+                    <td>{{ teacher_hour['Lastname'] }}</td>
+                    <td>{{ teacher_hour['coursecode'] }} {{ teacher_hour['coursename'] }}</td>
+                    <td>{{ teacher_hour['hours'] }}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        <hr>
+        {% endfor %}
+        <button type="button" onclick="history.back()">Back</button>
+    </form>
+{% endblock %}
